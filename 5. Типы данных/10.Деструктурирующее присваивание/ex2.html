@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let salaries = {
+            "John": 100,
+            "Pete": 300,
+            "Mary": 250
+        };
+
+        let topSalary = (salaries) => {
+            if (!salaries) return null;
+
+            let max = {
+                name: '',
+                salary: 0
+            };
+
+            for (let [name, salary] of Object.entries(salaries)) {
+                if (max.salary < salary) {
+                    max.salary = salary;
+                    max.name = name;
+                }
+            }
+
+            return max.name;
+        };
+
+        alert(topSalary(salaries))
+    </script>
+</body>
+
+</html>

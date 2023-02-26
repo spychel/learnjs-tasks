@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let capitalizeFirstSymbol = (str) => {
+            return str[0].toUpperCase() + str.substring(1);
+        };
+
+        let camelize = (str) => {
+            let delimiter = '-';
+            let splittedStr = str.split(delimiter);
+            let firstIsDelimiter = str[0] == delimiter;
+
+            let filteredStr = splittedStr.filter(element => element != '');
+
+            filteredStr.forEach((element, index) => {
+                filteredStr[index] = capitalizeFirstSymbol(element);
+            });
+
+            if (!firstIsDelimiter) {
+                filteredStr[0] = filteredStr[0].toLowerCase();
+            }
+
+            let result = filteredStr.join('');
+
+            return result;
+        };
+
+        alert(camelize("background-color") == 'backgroundColor');
+        alert(camelize("list-style-image") == 'listStyleImage');
+        alert(camelize("-webkit-transition") == 'WebkitTransition');
+
+    </script>
+</body>
+
+</html>

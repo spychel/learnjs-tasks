@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function formatDate(date) {
+            var dateFormatOptions = {
+                year: '2-digit',
+                month: '2-digit',
+                day: '2-digit',
+            };
+
+            var timeFormatOptions = {
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+
+            let secund = Math.floor((new Date() - date) / 1000);
+            return secund <= 1 ? 'прямо сейчас' :
+                secund < 60 ? `${secund} сек. назад` :
+                secund <= 3600 ?
+                `${Math.floor(secund / 60)} мин. назад` :
+                date.toLocaleString('ru-Ru', dateFormatOptions) + " " + date.toLocaleString('ru-Ru', timeFormatOptions);
+        }
+
+        alert(formatDate(new Date(new Date - 1))); // "прямо сейчас"
+
+        alert(formatDate(new Date(new Date - 30 * 1000))); // "30 сек. назад"
+
+        alert(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 мин. назад"
+
+        // вчерашняя дата вроде 31.12.2016, 20:00
+        alert(formatDate(new Date(new Date - 86400 * 1000)));
+    </script>
+</body>
+
+</html>

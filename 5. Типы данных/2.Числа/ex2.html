@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Метод toFixed(n) округляет число до n знаков после запятой и возвращает строковое представление результата.
+            Math.round округляет число до n до ближайшего целого
+        */
+        alert(6.35.toFixed(1)); // не округляет как мы ожидаем, потому что
+        alert(6.35.toFixed(20)); //в действительности это число выглядит как 6.34999999999999964473
+        // Мы должны приблизить его к целому числу, перед округлением
+        alert(Math.round(6.35 * 10) / 10 ); // либо так
+        alert((6.35 * 10).toFixed(0) / 10 ); // либо так
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Имея такую вводную информацию, решите, какую структуру данных вы могли бы использовать 
+        //для ответа на вопрос «было ли сообщение прочитано?».
+        //
+        //Я бы мог использовать WeakSet
+        let isRead = (msg) => {
+            return readMessages.has(msg);
+        }
+
+        let displayIsMsgRead = (msg) => {
+            isRead(msg) ?
+                alert("Сообщение прочитано.") :
+                alert("Сообщение не прочитано.");
+        }
+
+        let messages = [{
+            text: "Hello",
+            from: "John"
+        }, {
+            text: "How goes?",
+            from: "John"
+        }, {
+            text: "See you soon",
+            from: "Alice"
+        }];
+
+        let readMessages = new WeakSet();
+
+        readMessages.add(messages[0]);
+        readMessages.add(messages[1]);
+
+        messages.forEach(element => displayIsMsgRead(element));
+        console.log(readMessages);
+    </script>
+</body>
+
+</html>

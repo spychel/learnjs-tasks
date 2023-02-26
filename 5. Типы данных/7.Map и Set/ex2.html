@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function aclean(arr) {
+            let result = new Map();
+            arr.forEach(element => {
+                let sort = element.split('').sort().join('');
+                result.set(sort.toLowerCase(), element);
+            });
+            return [...result.values()];
+        };
+
+        let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+        alert(aclean(arr)); // "nap,teachers,ear" или "PAN,cheaters,era"
+    </script>
+</body>
+
+</html>
